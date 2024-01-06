@@ -1,6 +1,9 @@
 Prediction of year of publication - Group Assignment for my Machine Learning Course
 In this challenge the task is to predict the year of publication of scientific papers, based on their metadata.
 
+
+Introduction:
+
 The goal of the assignment is to predict the year in which the scientific paper is published.
 To do this the train.json file is analyzed based on its features, and their relationship with the target value “year”.
 The data is pre-processed to account for null values in the columns.
@@ -12,6 +15,8 @@ CountVectorizer was deemed to be a better fit for our current task as it correla
 Both Logistic Regression and Random Forest were used as our desired models to see how good they perform.
 Logistic Regression is a linear model algorithm for classification problems whereas random forest is an ensemble method,
 a collection of decision trees with multiple tree boundaries. The result was based on the random forest model as we believe it is a better fit for our assignment and the data available. 
+
+
 
 
 
@@ -32,6 +37,8 @@ For the abstract column a new feature ‘has_abstract’ was implemented followi
 -	One-hot encoding for ENTRYTYPE:
 This sequence of operations converts the categorical ‘ENTRYTYPE’ feature into multiple binary features of 0 and 1 and represents the presence or absence of each category 0 and 1. In this part we define the columns with ColumnTransformer() in order to transform the text in the title into numerical values for better processing with CountVectorizer(). In the function, we choose a transformer ‘passthrough’ in order the columns are the same through transformation. 
 
+
+
 Hyperparameter tuning :
 
 During the selection of parameters different optimizations with various configurations were explored When it came to the RFR model a GridSearch was conducted. The GridSearch creates a grid of all possible combinations of the hyperparameters and their values and evaluates each combination using cross-validation to determine which set of hyperparameters yields the best performance in the current model. We used  parameters such as: 
@@ -39,6 +46,8 @@ During the selection of parameters different optimizations with various configur
 ‘max_features’[1,2,4,6,8,12] which specifies the quantity of features to be selected
 ‘ max_depth’[5,10,15,20,Nine] which sets the depth of each individual tree.
  Lastly despite these variations the model ended up performing worse or degraded with no significant improvement. Thus, due to high computational expenses associated with these settings, we made the decision to just follow the default model. configuration with only a slight adjustment to the number of trees/estimators used from 100 to 200
+
+
 
 Discussion of the performance of  our solution:
 
